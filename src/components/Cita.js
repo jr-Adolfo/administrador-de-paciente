@@ -1,5 +1,6 @@
 // @flow 
 import * as React from 'react';
+import PropTypes from 'prop-types';
 
 export const Cita = ({cita, eliminarCita}) => (
     <div className="cita">
@@ -11,3 +12,8 @@ export const Cita = ({cita, eliminarCita}) => (
         <button className="button eliminar u-full-width" onClick={()=> eliminarCita(cita.id)}>Eliminar &times;</button>
     </div>
 );
+
+Cita.propTypes = {
+    cita: PropTypes.object.isRequired,
+    eliminarCita: PropTypes.func.isRequired
+}
