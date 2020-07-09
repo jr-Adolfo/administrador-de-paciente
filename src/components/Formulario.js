@@ -1,5 +1,6 @@
 // @flow
 import React, { Fragment, useState } from "react";
+import uuid from 'react-uuid';
 
 export const Formulario = () => {
   //Crear State de Citas
@@ -40,6 +41,12 @@ export const Formulario = () => {
     }
     // Elimina el mensaje previo
     seterror(false);
+
+    // Asignando un id
+    cita.id = uuid();
+
+    console.log(cita);
+    
   };
 
   return (
