@@ -3,7 +3,14 @@ import "./index.css";
 import { Formulario } from "./components/Formulario";
 import { Cita } from "./components/Cita";
 function App() {
-  const [citas, guardarCitas] = useState([]);
+
+  //Citas en el local storage
+  let citasIniciales = JSON.parse(localStorage.getItem('citas'));
+  if(!citasIniciales){
+    citasIniciales = []
+  }
+
+  const [citas, guardarCitas] = useState(citasIniciales);
 
   const crearCita = (cita) => {
     guardarCitas([...citas, cita]);
@@ -17,7 +24,11 @@ function App() {
   const titulo = citas.length === 0 ? "No hay citas" : "Administra tus citas";
 
   useEffect(() => {
-    console.log("algun evento pasa en citas");
+    if(citasIniciales){
+      localStorage.setItem('citas', JSON.stringify(citas))
+    }else{
+      localStorage.setItem('citas', JSON.stringify([]))
+    }
   }, [citas]);
 
   return (
