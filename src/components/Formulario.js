@@ -19,10 +19,16 @@ export const Formulario = () => {
   // Extrayendo valores
   const { mascota, propietario, fecha, hora, sintomas } = cita;
 
+  // Submit cita
+  const submitCita = e =>{
+    e.preventDefault();
+    console.log('Enviando datos');
+  }
+
   return (
     <Fragment>
       <h2>CREAR CITA</h2>
-      <form>
+      <form onSubmit={submitCita}>
         <label>Nombre Mascota</label>
         <input
           type="text"
