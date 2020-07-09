@@ -16,6 +16,9 @@ export const Formulario = () => {
     actualizarCita({ ...cita, [e.target.name]: e.target.value });
   };
 
+  // Extrayendo valores
+  const { mascota, propietario, fecha, hora, sintomas } = cita;
+
   return (
     <Fragment>
       <h2>CREAR CITA</h2>
@@ -27,6 +30,7 @@ export const Formulario = () => {
           name="mascota"
           placeholder="Nombre de la mascota"
           onChange={actualizarState}
+          value={mascota}
         />
         <label>Nombre Dueño</label>
         <input
@@ -35,6 +39,7 @@ export const Formulario = () => {
           name="propietario"
           placeholder="Nombre del dueño"
           onChange={actualizarState}
+          value={propietario}
         />
         <label>Fecha</label>
         <input
@@ -42,6 +47,7 @@ export const Formulario = () => {
           className="u-full-width"
           name="fecha"
           onChange={actualizarState}
+          value={fecha}
         />
         <label>Hora</label>
         <input
@@ -49,12 +55,14 @@ export const Formulario = () => {
           className="u-full-width"
           name="hora"
           onChange={actualizarState}
+          value={hora}
         />
         <label>Sintomas</label>
         <textarea
           className="u-full-width"
           name="sintomas"
           onChange={actualizarState}
+          value={sintomas}
         ></textarea>
         <button className="button-primary u-full-width">Agregar Cita</button>
       </form>
