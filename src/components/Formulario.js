@@ -11,6 +11,11 @@ export const Formulario = () => {
     sintomas: "",
   });
 
+  // Funcion que se escribe cada que el usuario escribe en un input
+  const actualizarState = (e) => {
+    actualizarCita({ ...cita, [e.target.name]: e.target.value });
+  };
+
   return (
     <Fragment>
       <h2>CREAR CITA</h2>
@@ -21,6 +26,7 @@ export const Formulario = () => {
           className="u-full-width"
           name="mascota"
           placeholder="Nombre de la mascota"
+          onChange={actualizarState}
         />
         <label>Nombre Dueño</label>
         <input
@@ -28,13 +34,28 @@ export const Formulario = () => {
           className="u-full-width"
           name="propietario"
           placeholder="Nombre del dueño"
+          onChange={actualizarState}
         />
         <label>Fecha</label>
-        <input type="date" className="u-full-width" name="fecha" />
+        <input
+          type="date"
+          className="u-full-width"
+          name="fecha"
+          onChange={actualizarState}
+        />
         <label>Hora</label>
-        <input type="time" className="u-full-width" name="hora" />
+        <input
+          type="time"
+          className="u-full-width"
+          name="hora"
+          onChange={actualizarState}
+        />
         <label>Sintomas</label>
-        <textarea className="u-full-width" name="sintomas"></textarea>
+        <textarea
+          className="u-full-width"
+          name="sintomas"
+          onChange={actualizarState}
+        ></textarea>
         <button className="button-primary u-full-width">Agregar Cita</button>
       </form>
     </Fragment>
