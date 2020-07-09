@@ -1,9 +1,18 @@
 // @flow
-import * as React from "react";
+import React, { Fragment, useState } from "react";
 
 export const Formulario = () => {
+  //Crear State de Citas
+  const [cita, actualizarCita] = useState({
+    mascota: "",
+    propietario: "",
+    fecha: "",
+    hora: "",
+    sintomas: "",
+  });
+
   return (
-    <div>
+    <Fragment>
       <h2>CREAR CITA</h2>
       <form>
         <label>Nombre Mascota</label>
@@ -23,11 +32,11 @@ export const Formulario = () => {
         <label>Fecha</label>
         <input type="date" className="u-full-width" name="fecha" />
         <label>Hora</label>
-        <input type="time" className="u-full-width" name="hora"/>
+        <input type="time" className="u-full-width" name="hora" />
         <label>Sintomas</label>
         <textarea className="u-full-width" name="sintomas"></textarea>
         <button className="button-primary u-full-width">Agregar Cita</button>
       </form>
-    </div>
+    </Fragment>
   );
 };
