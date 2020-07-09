@@ -16,18 +16,40 @@ export const Formulario = () => {
     actualizarCita({ ...cita, [e.target.name]: e.target.value });
   };
 
+  // useState error
+  const [error, seterror] = useState(false);
+
   // Extrayendo valores
   const { mascota, propietario, fecha, hora, sintomas } = cita;
 
   // Submit cita
-  const submitCita = e =>{
+  const submitCita = (e) => {
     e.preventDefault();
-    console.log('Enviando datos');
-  }
+
+    // Validando datos
+    if (
+      mascota.trim() === "" ||
+      propietario.trim() === "" ||
+      fecha.trim() === "" ||
+      hora.trim() === "" ||
+      sintomas.trim() === ""
+    ) {
+      seterror(true);
+      // finaliza la funcion
+      return;
+    }
+    // Elimina el mensaje previo
+    seterror(false);
+  };
 
   return (
     <Fragment>
       <h2>CREAR CITA</h2>
+
+      {error ? (
+        <p className="alerta-error">Todos los campos son obligatorios</p>
+      ) : null}
+
       <form onSubmit={submitCita}>
         <label>Nombre Mascota</label>
         <input
