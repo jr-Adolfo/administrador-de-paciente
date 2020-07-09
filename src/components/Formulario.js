@@ -1,8 +1,8 @@
 // @flow
 import React, { Fragment, useState } from "react";
-import uuid from 'react-uuid';
+import uuid from "react-uuid";
 
-export const Formulario = ({crearCita}) => {
+export const Formulario = ({ crearCita }) => {
   //Crear State de Citas
   const [cita, actualizarCita] = useState({
     mascota: "",
@@ -46,8 +46,16 @@ export const Formulario = ({crearCita}) => {
     cita.id = uuid();
 
     // Crea Cita
-    crearCita(cita)
-    
+    crearCita(cita);
+
+    // Reiniciando Form
+    actualizarCita({
+      mascota: "",
+      propietario: "",
+      fecha: "",
+      hora: "",
+      sintomas: "",
+    });
   };
 
   return (
