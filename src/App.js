@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import "./index.css";
 import { Formulario } from "./components/Formulario";
 import { Cita } from "./components/Cita";
@@ -14,7 +14,11 @@ function App() {
     guardarCitas(nuevasCitas);
   };
 
-  const titulo = citas.length === 0 ? 'No hay citas' : 'Administra tus citas'
+  const titulo = citas.length === 0 ? "No hay citas" : "Administra tus citas";
+
+  useEffect(() => {
+    console.log("algun evento pasa en citas");
+  }, [citas]);
 
   return (
     <Fragment>
