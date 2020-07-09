@@ -3,7 +3,7 @@ import './index.css'
 import { Formulario } from './components/Formulario';
 function App() {
   return (
-    <Fragment className="App">
+    <Fragment>
       <h1>Administrador de Pacientes</h1>
 
       <div className="container">
